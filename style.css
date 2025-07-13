@@ -465,6 +465,19 @@ footer {
     padding-top: 25px;
 }
 
+/* Estilos para cards que vão animar na rolagem */
+.animated-card {
+    opacity: 0;
+    transform: translateY(20px); /* Começa ligeiramente abaixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transição suave */
+    will-change: opacity, transform; /* Otimização para performance */
+}
+
+.animated-card.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Vai para a posição original */
+}
+
 /* --- Responsividade: Ajustes para Mobile (max-width: 768px) --- */
 @media (max-width: 768px) {
     header .container {
@@ -593,6 +606,19 @@ footer {
     }
     .social-icons {
         margin-top: 15px;
+    }
+
+    /* Animação para cards em mobile - pode ser mais sutil */
+    .animated-card {
+        /* Para mobile, podemos manter a mesma animação ou torná-la ainda mais sutil */
+        opacity: 0;
+        transform: translateY(10px); /* Menor movimento em mobile */
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transição um pouco mais rápida */
+    }
+
+    .animated-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
