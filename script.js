@@ -99,4 +99,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // --- Nova Funcionalidade: Animação dos Cards na Rolagem ---
+    const animatedCards = document.querySelectorAll('.service-item, .benefit-item, .testimonial-item');
+
+    // Adiciona a classe base para animação
+    animatedCards.forEach(card => {
+        card.classList.add('animated-card');
+    });
+
+    const observerOptions = {
+        root: null, // O viewport é o elemento raiz
+        rootMargin: '0px', // Margem em torno do root
+        threshold: 0.1 // O card se torna visível quando 10% dele está na viewport
+    };
+
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Se o card está visível, adiciona a classe de animação e para de observar
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observa cada card
+    animatedCards.forEach(card => {
+        cardObserver.observe(card);
+    });
 });
