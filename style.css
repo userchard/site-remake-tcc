@@ -1,0 +1,620 @@
+/* Variáveis de Cores - Nova Paleta "Colheita Abundante" */
+:root {
+    --verde-vitalidade: #4F8B5A;      /* Verde Principal */
+    --amarelo-colheita: #FFFF00;     /* Amarelo/Dourado de Destaque */
+    --amarelo-footer: #f9ff41;          /* Terracota/Marrom Claro */
+    --verde-suave-fundo: #f4fff4;      /* Bege Suave para Fundo Principal */
+    --azul-ceu-confianca: #A0D2EB;    /* Azul Céu para detalhes */
+
+    /* Cores auxiliares baseadas na paleta */
+    --texto-principal: #3D2D1B; /* Um marrom bem escuro para texto, quase preto */
+    --branco-limpo: #FFFFFF;
+    --preto: #000000;
+    --sombra-leve: rgba(0, 0, 0, 0.08);
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--texto-principal);
+    background-color: var(--verde-suave-fundo);
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--branco-limpo);
+    padding: 15px 0;
+    box-shadow: 0 2px 8px var(--sombra-leve);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* --- Menu Desktop --- */
+header .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header .nav-links li {
+    margin-left: 30px;
+}
+
+header .nav-links li a {
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .nav-links li a:hover {
+    color: var(--verde-vitalidade);
+}
+
+/* Esconde o botão de fechar e o CTA mobile em desktop */
+.close-menu-item,
+.mobile-cta-item {
+    display: none;
+}
+
+/* Esconde o botão de hambúrguer em desktop */
+.hamburger-menu {
+    display: none;
+}
+
+/* Estilos para o botão CTA padrão (desktop) */
+.cta-button {
+    background-color: var(--verde-vitalidade);
+    color: var(--branco-limpo);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(79, 139, 90, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #3A6B44;
+    transform: translateY(-3px);
+}
+
+/* --- Menu Overlay (Fundo escuro quando o menu mobile está aberto) --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Estado ativo do overlay */
+body.menu-open .menu-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Esconde rolagem do corpo quando o menu está aberto */
+body.menu-open {
+    overflow: hidden;
+}
+
+
+/* Botões Gerais */
+.btn-principal,
+.btn-secundario {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.btn-principal:hover {
+    background-color: #3A6B44;
+    border-color: #3A6B44;
+    transform: translateY(-3px);
+}
+
+.btn-principal {
+    background-color: var(--verde-vitalidade);
+    color: var(--branco-limpo);
+    border: 2px solid var(--verde-vitalidade);
+    box-shadow: 0 4px 10px rgba(79, 139, 90, 0.3);
+}
+
+
+.btn-secundario {
+    background-color: var(--amarelo-colheita);
+    color: var(--preto);
+    border: 2px solid var(--amarelo-colheita);
+    box-shadow: 0 4px 10px rgba(245, 242, 48, 0.3);
+    width: 360px;
+}
+
+.btn-secundario:hover {
+    background-color: #eaea00;
+    border-color: #eaea00;
+    transform: translateY(-3px);
+}
+
+/* Seção Hero (Banner Principal) */
+.hero-section {
+    background-image: url('img/hero-bg.svg');
+    background-size: cover;
+    background-position: center;
+    color: var(--branco-limpo);
+    text-align: center;
+    padding: 180px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 600px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4em;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section:nth-child(even) {
+    background-color: var(--verde-suave-fundo);
+}
+
+section:nth-child(odd):not(.hero-section) {
+    background-color: var(--branco-limpo);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2em;
+    color: var(--verde-vitalidade);
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: var(--verde-vitalidade);
+    border-radius: 3px;
+}
+
+/* Seção de Serviços */
+.service-grid, .mercosul-benefits, .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.service-item, .benefit-item, .testimonial-item {
+    background-color: var(--branco-limpo);
+    padding: 45px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--sombra-leve);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-item:hover, .benefit-item:hover, .testimonial-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.service-item i, .benefit-item i {
+    font-size: 4em;
+    color: var(--verde-vitalidade);
+    margin-bottom: 25px;
+}
+
+.service-item h3, .benefit-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: var(--verde-vitalidade);
+    margin-bottom: 18px;
+}
+
+.service-item p, .benefit-item p {
+    font-size: 1.15em;
+    color: var(--texto-principal);
+}
+
+/* Seção Depoimentos */
+.testimonials-section {
+    background-color: var(--verde-suave-fundo);
+}
+
+.testimonial-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--amarelo-colheita);
+    box-shadow: 0 0 0 2px var(--branco-limpo);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--texto-principal);
+}
+
+.testimonial-item h4 {
+    color: var(--verde-vitalidade);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Seção Contato */
+.contact-section {
+    background-color: var(--verde-vitalidade);
+    color: var(--texto-principal);
+    padding-bottom: 120px;
+}
+
+.contact-section h2 {
+    color: var(--verde-vitalidade);
+}
+
+.contact-section h2::after {
+    background-color: var(--verde-vitalidade);
+}
+
+.contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 50px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: var(--branco-limpo);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--texto-principal);
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: var(--texto-principal);
+    background-color: var(--verde-suave-fundo);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn-principal {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--verde-vitalidade);
+    color: var(--branco-limpo);
+    padding: 60px 0 30px;
+    font-size: 1em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 280px;
+}
+
+.footer-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    color: var(--amarelo-footer);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: var(--branco-limpo);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--verde-vitalidade);
+}
+
+.footer-col p {
+    margin-bottom: 12px;
+}
+
+.footer-col i {
+    margin-right: 10px;
+    color: var(--azul-ceu-confianca);
+}
+
+.social-icons a {
+    color: var(--branco-limpo);
+    font-size: 1.8em;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--verde-vitalidade);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 25px;
+}
+
+/* --- Responsividade: Ajustes para Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .desktop-cta {
+        display: none;
+    }
+
+    /* CORREÇÃO 1: Garante a visibilidade e cor do botão do hambúrguer */
+    .hamburger-menu {
+        display: block; /* Garante que ele é visível */
+        z-index: 1002;
+        position: relative; /* Para garantir o z-index */
+        background: none; /* Garante que não tem fundo inesperado */
+        border: none; /* Garante que não tem borda inesperada */
+        color: var(--verde-vitalidade); /* Cor do ícone */
+        font-size: 2em; /* Tamanho do ícone para visibilidade */
+        cursor: pointer;
+        line-height: 1; /* Ajuda a centralizar o ícone verticalmente */
+        padding: 5px; /* Pequeno padding para facilitar o clique */
+    }
+
+    header .nav-links {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100%;
+        background-color: var(--branco-limpo);
+        flex-direction: column;
+        padding: 20px; /* Padding geral para o conteúdo do menu */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        transition: right 0.4s ease-in-out;
+        z-index: 1000;
+        align-items: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    header .nav-links.active {
+        right: 0;
+    }
+
+    /* Estilo para itens de link dentro do menu mobile */
+    .nav-links li {
+        margin: 15px 0;
+        width: 100%; /* Garante que o item da lista ocupe toda a largura */
+    }
+
+    .nav-links li a {
+        font-size: 1.3em;
+        color: var(--texto-principal);
+        display: block;
+        padding: 10px 0; /* Remove padding horizontal, rely on parent .nav-links padding */
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-links li a:hover {
+        color: var(--verde-vitalidade);
+    }
+
+    /* Estilo para o botão de fechar dentro do menu mobile (o 'X' grande) */
+    .close-menu-item {
+        display: block;
+        width: 100%;
+        text-align: right; /* Alinha o botão 'X' à direita dentro do seu contêiner */
+        margin-bottom: 20px; /* Espaço abaixo do X */
+        padding-top: 5px; /* Pequeno padding no topo para o 'X' */
+    }
+
+    /* CORREÇÃO 2: Estilo para o CTA Button dentro do menu mobile */
+    .mobile-cta-item {
+        display: block;
+        width: 100%; /* Garante que o item da lista ocupa toda a largura */
+        margin-top: 30px;
+    }
+    .mobile-cta-item .cta-button {
+        width: 100%; /* Ocupa 100% da largura do seu PARENT (li.mobile-cta-item) */
+        padding: 12px 0; /* Remove padding horizontal do botão, rely on .nav-links padding */
+        font-size: 1em;
+        box-shadow: none; /* Remove a sombra extra para um visual mais limpo no menu */
+        text-align: center; /* Garante que o texto está centralizado no botão */
+    }
+
+
+    /* Demais ajustes para mobile (mantidos ou ajustados) */
+    .hero-section {
+        padding: 120px 0;
+    }
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+    .hero-section p {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    section {
+        padding: 80px 0;
+    }
+    .service-grid, .mercosul-benefits, .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-form {
+        padding: 30px;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-col {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .social-icons {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+    .btn-principal, .btn-secundario {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    header .nav-links {
+        width: 100%; /* Menu ocupa toda a largura em telas muito pequenas */
+        right: -100%;
+    }
+    header .nav-links.active {
+        right: 0;
+    }
+}
