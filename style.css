@@ -510,7 +510,7 @@ footer {
         right: -300px;
         width: 280px;
         height: 100%;
-        background-color: var(--branco-limpo);
+        background-color: var(--branco-limpo) !important;
         flex-direction: column;
         padding: 20px; /* Padding geral para o conteúdo do menu */
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
