@@ -24,7 +24,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--texto-principal);
-    background-color: var(--verde-suave-fundo);
+    background-color: var(--branco-limpo);
     overflow-x: hidden; /* Evita rolagem horizontal indesejada */
 }
 
